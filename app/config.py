@@ -1,11 +1,18 @@
 from pydantic_settings import BaseSettings
 
+
 class Settings(BaseSettings):
-    database_url: str = "postgresql+psycopg://postgres:postgres@localhost:5433/catalog"
+    # --- Postgres ---
+    database_url: str = "postgresql+psycopg://postgres:postgres@localhost:5432/catalog"
 
-    cache_ttl_seconds: int = 60
+    # --- Redis ---
+    redis_url: str = "redis://localhost:6379/0"
 
-    class config:
+    # --- Cache ---
+    cache_ttl_seconds: int = 60          # how long a cached product stays fresh
+
+    class Config:
         env_file = ".env"
+
 
 settings = Settings()
