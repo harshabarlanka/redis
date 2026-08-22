@@ -1,0 +1,1 @@
+so the next step is to learn about the rate limiting and more about the redis
